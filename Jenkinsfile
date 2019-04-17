@@ -18,6 +18,7 @@ pipeline {
 				echo "${env.TEST_REPO}"
 				echo "${env.SALT_MASTER}"
 				echo "${env.RPM_PATH_BASE}"
+				echo "${env.BUILD_DATE}"
             		}		
         	}	
 
