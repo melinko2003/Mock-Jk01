@@ -6,7 +6,7 @@ pipeline {
 	agent any
 
   	environment {
-		env()
+		app-env()
 	}
 
 	stages {
