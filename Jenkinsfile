@@ -12,12 +12,11 @@ pipeline {
 
 	stages {
 
-		preStage()
-
         	stage('Prep Env') {
             		steps {
                 		echo 'Prep Env..'
 				getEnv()
+				preStage()
             		}		
         	}	
 
