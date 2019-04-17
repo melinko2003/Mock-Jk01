@@ -5,15 +5,12 @@
 pipeline {
 	agent any
 
-  	environment {
-		app-env()
-	}
-
 	stages {
 
         	stage('Prep Env') {
             		steps {
                 		echo 'Prep Env..'
+				app-env()
 				getEnv()
 				preStage()
 				echo "${env.YUM_URL}"
