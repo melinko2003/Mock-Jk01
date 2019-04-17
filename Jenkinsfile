@@ -24,6 +24,7 @@ pipeline {
 				echo "${env.SALT_MASTER}"
 				echo "${env.RPM_PATH_BASE}"
 				echo "${env.BUILD_DATE}"
+				echo ${RPM_NAME}
             		}		
         	}	
 
