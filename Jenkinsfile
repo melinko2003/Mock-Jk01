@@ -5,6 +5,11 @@
 pipeline {
 	agent any
 
+  	environment {
+       		APP_NAME= 'pki-billing-ms'
+		RPM_NAME="${APP_NAME}-${BUILD_DATE}-1.git.${GIT_COMMIT}.x86_64.rpm"
+	}
+
 	stages {
 
         	stage('Prep Env') {
