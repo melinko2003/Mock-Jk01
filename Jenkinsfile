@@ -1,5 +1,7 @@
 #!groovy
 
+@Library('MJS') _
+
 pipeline {
 	agent any
 
@@ -13,12 +15,14 @@ pipeline {
         	stage('Prep Env') {
             		steps {
                 		echo 'Prep Env..'
+				getEnv()
             		}		
         	}	
 
         	stage('Maven Build') {
             		steps {
                 		echo 'Maven Build...'
+				echo env.GIT_COMMIT
             		}
         	}	
 
