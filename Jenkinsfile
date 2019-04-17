@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('MJS') _
+@Library('MJS@master') _
 
 pipeline {
 	agent any
