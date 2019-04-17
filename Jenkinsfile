@@ -10,7 +10,7 @@ pipeline {
         	stage('Prep Env') {
             		steps {
                 		echo 'Prep Env..'
-				app-env()
+				appEnv()
 				getEnv()
 				preStage()
 				echo "${env.YUM_URL}"
