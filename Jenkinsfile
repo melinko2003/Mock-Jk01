@@ -20,10 +20,8 @@ pipeline {
         			echo "${DEV_REPO}"
 				echo "${TEST_REPO}"
 				echo "${SALT_MASTER}"
-				# echo "${BUILD_DATE}"
 				echo "${RPM_PATH_BASE}"
 				echo "${APP_NAME}"
-				# echo "${RPM_NAME}"
             		}		
         	}	
 
