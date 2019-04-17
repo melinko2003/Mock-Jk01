@@ -7,7 +7,8 @@ pipeline {
 
   	environment {
        		APP_NAME= 'pki-billing-ms'
-		RPM_NAME="${APP_NAME}-${env.BUILD_DATE}-1.git.${GIT_COMMIT}.x86_64.rpm"
+		BUILD_DATE= new Date().format( 'yyyyMMddHHmm' )
+		RPM_NAME="${APP_NAME}-${BUILD_DATE}-1.git.${GIT_COMMIT}.x86_64.rpm"
 	}
 
 	stages {
@@ -23,7 +24,6 @@ pipeline {
 				echo "${env.TEST_REPO}"
 				echo "${env.SALT_MASTER}"
 				echo "${env.RPM_PATH_BASE}"
-				echo "${env.BUILD_DATE}"
 				echo "${RPM_NAME}"
             		}		
         	}	
