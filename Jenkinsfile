@@ -19,11 +19,11 @@ pipeline {
 				appEnv()
 				getEnv()
 				preStage()
-				echo "${env.YUM_URL}"
-        			echo "${env.DEV_REPO}"
-				echo "${env.TEST_REPO}"
-				echo "${env.SALT_MASTER}"
-				echo "${env.RPM_PATH_BASE}"
+				echo "${YUM_URL}"
+        			echo "${DEV_REPO}"
+				echo "${TEST_REPO}"
+				echo "${SALT_MASTER}"
+				echo "${RPM_PATH_BASE}"
 				echo "${RPM_NAME}"
             		}		
         	}	
