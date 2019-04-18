@@ -104,4 +104,6 @@ pipeline {
       	//		echo 'Pipeline is complete!'
     	//	}
   	//}
+	}
 }
+
