@@ -5,18 +5,12 @@
 pipeline {
 	agent any
 
-  	environment {
-       		APP_NAME= 'pki-billing-ms'
-		BUILD_DATE= new Date().format( 'yyyyMMddHHmm' )
-		RPM_NAME="${APP_NAME}-${BUILD_DATE}-1.git.${GIT_COMMIT}.x86_64.rpm"
-	}
-
 	stages {
 
         	stage('Prep Env') {
             		steps {
                 		echo 'Prep Env..'
-				appEnv()
+				appEnv('pki-billing-ms')
 				getEnv()
 				preStage()
 				echo "${YUM_URL}"
@@ -25,6 +19,8 @@ pipeline {
 				echo "${SALT_MASTER}"
 				echo "${RPM_PATH_BASE}"
 				echo "${RPM_NAME}"
+				echo "${APP_NAME}"
+				echo "${BUILD_DATE}"
             		}		
         	}	
 
