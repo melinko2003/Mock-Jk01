@@ -65,9 +65,6 @@ pipeline {
                 }
 
         	stage ('Publish/Deploy To Test') {
-        	        //when {
-                        //        expression { env.GIT_BRANCH == "master" }
-                        //}
                         steps {
                                 Deploy2Env(env.RPM_PATH_BASE,env.RPM_NAME,env.TEST_REPO)
                         }
@@ -75,28 +72,12 @@ pipeline {
                                 success{
                                         script {
                                                 echo "Success!"
-                                               // if (GIT_BRANCH == 'master') {
-                                               // build job: 'salt_update_puppet', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'test']]
-                                               // build job: 'salt-run-integrations', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'test']]
-                                                }
+                                                
                                         }
                                 }
                         }
                 }
 
- 	// post {
-    	//	success{
-      	//		script {
-        //			if (GIT_BRANCH == 'master') {
-        //  				build job: 'prod_rpm_sign', parameters: [[$class: 'StringParameterValue', name: 'RPM_URL', value: "https://yum.secureserver.net/repos/${env.TEST_REPO}/${env.RPM_NAME}"]]
-        //			}			
-      	//		}
-    	//	}
-  	//	always {
-      	//		//junit "target/surefire-reports/*.xml"
-      	//		echo 'Pipeline is complete!'
-    	//	}
-  	//}
 	}
 }
 
