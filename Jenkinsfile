@@ -8,18 +8,9 @@ pipeline {
 	stages {
         	stage('Prepare environment') {
             		steps {
-                		echo 'Prep Env..'
 				appEnv('pki-billing-ms')
 				getEnv()
-				preStage()
-				echo "${YUM_URL}"
-        			echo "${DEV_REPO}"
-				echo "${TEST_REPO}"
-				echo "${SALT_MASTER}"
-				echo "${RPM_PATH_BASE}"
-				echo "${RPM_NAME}"
-				echo "${APP_NAME}"
-				echo "${BUILD_DATE}"
+				echo "${env.RPM_NAME}"
             		}		
         	}	
 
@@ -44,7 +35,7 @@ pipeline {
 
 	    	stage ('RPM Build') {
             		when {
-              			expression { env.GIT_BRANCH == "master" }
+              			expression { env.GIT_BRANCH == "origin/master" }
             		}
 			steps { 
                                 RPMbuild()
