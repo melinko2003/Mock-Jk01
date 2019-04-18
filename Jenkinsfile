@@ -52,9 +52,6 @@ pipeline {
 		}
 		
         	stage ('Publish/Deploy To Dev') {
-                        //when {
-                        //        expression { env.GIT_BRANCH == "master" }
-                        //}
             		steps {
                 		Deploy2Env(env.RPM_PATH_BASE,env.RPM_NAME,env.DEV_REPO)
             		}
@@ -62,17 +59,13 @@ pipeline {
                                 success{
                                         script {
 						echo "Success!"
-                                               // if (GIT_BRANCH == 'master') {
-                                               // build job: 'salt_update_puppet', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'test']]
-                                               // build job: 'salt-run-integrations', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'test']]
                                                 }
                                         }
-                                }
-                        }
+			}
                 }
 
         	stage ('Publish/Deploy To Test') {
-        	                        //when {
+        	        //when {
                         //        expression { env.GIT_BRANCH == "master" }
                         //}
                         steps {
