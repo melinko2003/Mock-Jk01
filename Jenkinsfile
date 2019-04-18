@@ -43,31 +43,35 @@ pipeline {
 		}
 		
         	stage ('Publish/Deploy To Dev') {
+                        when {
+                                expression { env.GIT_BRANCH == "origin/master" }
+                        } 
             		steps {
                 		Deploy2Env(env.RPM_PATH_BASE,env.RPM_NAME,env.DEV_REPO)
             		}
 			post{
                                 success{
                                         script {
-						echo "Success!"
+						DeploySalt( env.GIT_BRANCH ,"Dev" )
                                                 }
                                         }
 			}
                 }
 
         	stage ('Publish/Deploy To Test') {
+                        when {
+                                expression { env.GIT_BRANCH == "origin/master" }
+                        } 
                         steps {
                                 Deploy2Env(env.RPM_PATH_BASE,env.RPM_NAME,env.TEST_REPO)
                         }
                         post{
                                 success{
-                                        script {
-                                                echo "Success!"
-                                                
+					script {
+                                                DeploySalt( env.GIT_BRANCH ,"Dev" )
                                         }
                                 }
-                        }
+                       }
                 }
-
 	}
 }
