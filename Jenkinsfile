@@ -33,7 +33,7 @@ pipeline {
 
         	stage('SonarQube') {
             		steps {
-				SonarQAnalysis(${env.GIT_BRANCH})
+				SonarQAnalysis(env.GIT_BRANCH)
             		}
         	}
 
